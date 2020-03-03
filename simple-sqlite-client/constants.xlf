@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+    <header>
+        <note>Simple SQLite Client</note>
+    </header>
+    <group resname="themes">
+        <trans-unit id="" resname="E8A23A976E2D4179AC60E20EBB4DD1C8" translate="no">
+            <source>SQLite Integer Format</source>
+        </trans-unit>
+    </group>
+    <group restype="x-4DK#" d4:groupName="E8A23A976E2D4179AC60E20EBB4DD1C8">
+        <trans-unit d4:value="0:L" id="E8A23A976E2D4179AC60E20EBB4DD1C8.1">
+            <source>SQLite Integer Simple</source>
+        </trans-unit>
+        <trans-unit d4:value="1:L" id="E8A23A976E2D4179AC60E20EBB4DD1C8.2">
+            <source>SQLite Integer Complex</source>
+        </trans-unit>
+    </group>
+</xliff>

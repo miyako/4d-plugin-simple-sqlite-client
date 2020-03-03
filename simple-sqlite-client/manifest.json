@@ -1,0 +1,11 @@
+{
+    "name": "Simple SQLite Client",
+    "id": 20000,
+    "commands": [
+        {
+            "theme": "Simple SQLite Client",
+            "syntax": "SQLite EXECUTE(&T;&T;&C;&L):J",
+            "threadSafe": true
+        }
+    ]
+}

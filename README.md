@@ -21,3 +21,8 @@ $SQL:="SELECT trackid, name, composer, unitprice FROM tracks;"
 $params:=New collection()
 $status:=SQLite EXECUTE ($path;$SQL;$params)
 ```
+
+### Remarks
+
+* using native ``libsqite3`` on Mac
+* using ``vcpkg`` ``sqlite-amalgamation-329000`` on Windows

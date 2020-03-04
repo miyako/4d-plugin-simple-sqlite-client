@@ -73,8 +73,6 @@ void SQLite_EXECUTE(PA_PluginParameters params) {
     }
     
     bool useParams = (paramCount > 0);
-        
-    std::lock_guard<std::mutex> lock(mutexSqlite);
     
     sqlite3 *pDb = NULL;
     

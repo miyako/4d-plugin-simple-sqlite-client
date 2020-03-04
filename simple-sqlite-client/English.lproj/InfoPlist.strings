@@ -1,1 +1,1 @@
-/* Localized versions of Info.plist keys */CFBundleName = "Simple SQLite Client";CFBundleShortVersionString = "1.0";CFBundleGetInfoString = "Simple SQLite Client version 1.0, Copyright 2020 miyako.";
+/* Localized versions of Info.plist keys */CFBundleName = "Simple SQLite Client";CFBundleShortVersionString = "1.0.1";CFBundleGetInfoString = "Simple SQLite Client version 1.0.1, Copyright 2020 miyako.";

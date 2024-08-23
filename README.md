@@ -14,7 +14,7 @@ Simple SQLite client using libsqlite3.
 
 ### Syntax
 
-[miyako.github.io](https://miyako.github.io/2024/08/23/4d-plugin-simple-sqlite-client.html)
+[miyako.github.io](https://miyako.github.io/2024/08/23/4d-plugin-simple-sqlite-clientmd.html)
 
 ### Example
 

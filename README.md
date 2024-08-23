@@ -6,7 +6,7 @@
 # simple-sqlite-client
 Simple SQLite client using libsqlite3
 
-*macOS library version:
+* macOS library version:
   * `libsqite3-tbd` (system library)
 
 * Windows library version:

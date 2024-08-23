@@ -4,7 +4,7 @@
 ![downloads](https://img.shields.io/github/downloads/miyako/4d-plugin-simple-sqlite-client/total)
 
 # simple-sqlite-client
-Simple SQLite client using libsqlite3.
+Simple SQLite client using libsqlite3
 
 *macOS library version:
   * `libsqite3-tbd` (system library)

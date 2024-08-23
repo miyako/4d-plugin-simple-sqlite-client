@@ -16,7 +16,7 @@ Simple SQLite client using libsqlite3.
 
 [miyako.github.io](https://miyako.github.io/2024/08/23/4d-plugin-simple-sqlite-client.html)
 
-## Usage
+### Example
 
 ```4d
 $path:=Get 4D folder(Current resources folder)+"chinook.db"

@@ -6,18 +6,19 @@
 # simple-sqlite-client
 Simple SQLite client using libsqlite3.
 
+*macOS library version:
+  * `libsqite3-tbd` (system library)
+
+* Windows library version:
+  * `sqlite-amalgamation-329000` (vcpkg)
+
 ### Examples
 
 based on the tutorial from [sqlitetutorial.net](https://www.sqlitetutorial.net/sqlite-select/) 
 
-```
+```4d
 $path:=Get 4D folder(Current resources folder)+"chinook.db"
 $SQL:="SELECT trackid, name, composer, unitprice FROM tracks;"
 $params:=New collection()
 $status:=SQLite EXECUTE ($path;$SQL;$params)
 ```
-
-### Remarks
-
-* using native ``libsqite3`` on Mac
-* using ``vcpkg`` ``sqlite-amalgamation-329000`` on Windows

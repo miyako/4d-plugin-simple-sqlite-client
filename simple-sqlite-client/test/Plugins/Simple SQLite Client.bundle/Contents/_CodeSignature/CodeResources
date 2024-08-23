@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wowicyoSgO+UdArzOGT0u3hk8+E=
+			MTv5p5kD7BS82KTRoIRxzMSgPmk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -16,6 +16,10 @@
 		<key>Resources/constants.xlf</key>
 		<data>
 		kxFHbpAOXa+x7ZjSanjctvXBwZQ=
+		</data>
+		<key>Resources/manifest.json</key>
+		<data>
+		+3n34CQRHp1qGHZRL/OaI4n2t9Q=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -35,11 +39,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wowicyoSgO+UdArzOGT0u3hk8+E=
+			MTv5p5kD7BS82KTRoIRxzMSgPmk=
 			</data>
 			<key>hash2</key>
 			<data>
-			VN2Khv2Qq52mfMiED6JXBfj8YJM6AtPoIJIso66hhzg=
+			V7h5TTMlrOfQU5x9NPStO1gbqf/C6Z2Db224AycRscc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -55,15 +59,15 @@
 			ECkC7AyGg2fIhbFHP2mHPxY54IBEbK/UAc1v841tsuk=
 			</data>
 		</dict>
-		<key>Windows/Simple SQLite Client.4DX</key>
+		<key>Resources/manifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			quNZU+9ousay9lIcKwdw5T5IasE=
+			+3n34CQRHp1qGHZRL/OaI4n2t9Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fd2WNzUWwYo0lw5umEo+xkoEFq0Zn9D9ATuvD5lupOo=
+			eg44rhizxaVFMEu0HqcwmqKUB61XIjb+ICpR1fTfUpk=
 			</data>
 		</dict>
 		<key>Windows64/Simple SQLite Client.4DX</key>
@@ -76,15 +80,6 @@
 			<data>
 			4NyHRp8SC7LrzafWkBLnp1vlfbeQxDDNy2oPzIkNav8=
 			</data>
-		</dict>
-		<key>manifest.json</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			1rO/sq4qIcX1+w/dR+S1iIJHBh0=
-			</data>
-			<key>requirement</key>
-			<string>identifier manifest and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Y69CWUC25B</string>
 		</dict>
 	</dict>
 	<key>rules</key>

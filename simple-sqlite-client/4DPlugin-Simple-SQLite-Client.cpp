@@ -12,10 +12,6 @@
 
 #include "sqlite3.h"
 
-#include <mutex>
-
-std::mutex mutexSqlite;
-
 #pragma mark -
 
 void PluginMain(PA_long32 selector, PA_PluginParameters params) {

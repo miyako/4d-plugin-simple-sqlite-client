@@ -5,4 +5,6 @@ $SQL:="SELECT\n    trackid,\n    name,\n    composer,\n    unitprice\nFROM\n    
 
 $params:=New collection:C1472()
 
-$status:=SQLite EXECUTE ($path;$SQL;$params)
+$status:=SQLite EXECUTE($path; $SQL; $params)
+
+SET TEXT TO PASTEBOARD:C523(JSON Stringify:C1217($status; *))

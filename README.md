@@ -12,6 +12,33 @@ Simple SQLite client using libsqlite3.
 * Windows library version:
   * `sqlite-amalgamation-329000` (vcpkg)
 
+```
+status:=PQ EXECUTE (connect;sql{;params{;format}})
+```
+
+<div class="grid">
+  <div class="syntax-th cell cell--2">Parameter</div>
+  <div class="syntax-th cell cell--2">Type</div>
+  <div class="syntax-th cell cell--8">Description</div>
+  <div class="syntax-td cell cell--2">path</div>
+  <div class="syntax-td cell cell--2">TEXT</div>
+  <div class="syntax-td cell cell--8">path for sqlite3_open</div>
+  <div class="syntax-td cell cell--2">sql</div>
+  <div class="syntax-td cell cell--2">TEXT</div>
+  <div class="syntax-td cell cell--8">command for sqlite3_prepare_v2</div>   
+  <div class="syntax-td cell cell--2">params</div>
+  <div class="syntax-td cell cell--2">COLLECTION</div>
+  <div class="syntax-td cell cell--8">values for sqlite3_bind_(text|double|int|null)</div>    
+  <div class="syntax-td cell cell--2">format</div>
+  <div class="syntax-td cell cell--2">LONGINT</div>
+  <div class="syntax-td cell cell--8">see below</div>    
+  <div class="syntax-td cell cell--2">status</div>
+  <div class="syntax-td cell cell--2">OBJECT</div>
+  <div class="syntax-td cell cell--8"></div>      
+</div>
+
+blob is returned in base64.
+
 ### Examples
 
 based on the tutorial from [sqlitetutorial.net](https://www.sqlitetutorial.net/sqlite-select/) 

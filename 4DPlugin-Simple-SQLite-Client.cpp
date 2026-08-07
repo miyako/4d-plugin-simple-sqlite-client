@@ -39,6 +39,8 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params) {
 
 void SQLite_EXECUTE(PA_PluginParameters params) {
 
+  try {
+
     PackagePtr pParams = (PackagePtr)params->fParameters;
 
     C_TEXT Param1;
@@ -83,8 +85,6 @@ void SQLite_EXECUTE(PA_PluginParameters params) {
                                  (int)sql.length(), &stmt, NULL);
         if(err == SQLITE_OK)
         {
-            std::vector<CUTF8String> paramStringValues;
-            
             if(useParams) {
                
                 for(unsigned int i = 0; i < paramCount; ++i) {
@@ -103,8 +103,13 @@ void SQLite_EXECUTE(PA_PluginParameters params) {
                             CUTF8String u8;
                             t.copyUTF8String(&u8);
                             
+                            /* SQLITE_TRANSIENT tells sqlite3 to copy the bytes now;
+                               u8 is a stack-local that goes out of scope before
+                               sqlite3_step() runs, so NULL (== SQLITE_STATIC) here
+                               would leave the bound value pointing at freed memory. */
                             sqlite3_bind_text(stmt, i + 1,
-                                              (const char *)u8.c_str(), (int)u8.length(), NULL);
+                                              (const char *)u8.c_str(), (int)u8.length(),
+                                              SQLITE_TRANSIENT);
                             
                         }
                             break;
@@ -181,12 +186,15 @@ void SQLite_EXECUTE(PA_PluginParameters params) {
                                     PA_ObjectRef resultCell = PA_CreateObject();
                                     ob_set_n(resultCell, L"intValue", intValue);
                                     
-                                    std::vector<char> buf(20);
+                                    /* INT64_MIN ("-9223372036854775808") is 20 characters
+                                       and needs a 21st byte for the null terminator; a
+                                       20-byte buffer overflows by one byte for that value. */
+                                    std::vector<char> buf(21);
                                     memset((char *)&buf[0], 0, buf.size());
 #if VERSIONMAC
-                                    sprintf((char *)&buf[0], "%lld", int64Value);
+                                    snprintf((char *)&buf[0], buf.size(), "%lld", int64Value);
 #else
-                                    sprintf_s((char *)&buf[0], 20, "%lld", int64Value);
+                                    sprintf_s((char *)&buf[0], buf.size(), "%lld", int64Value);
 #endif
                                     ob_set_s(resultCell, L"int64Value", &buf[0]);
                                     
@@ -253,15 +261,41 @@ void SQLite_EXECUTE(PA_PluginParameters params) {
 
             ob_set_c(returnValue, L"values", resultRows);
             
+            /* sqlite3_step() leaves the loop on anything other than SQLITE_ROW.
+               SQLITE_DONE means the query ran to completion; any other code
+               (e.g. SQLITE_ERROR, SQLITE_BUSY) means it stopped partway through
+               and resultRows above is a truncated/partial result — surface that
+               instead of silently reporting it as if it succeeded. */
+            if(err != SQLITE_DONE) {
+                ob_set_n(returnValue, L"error", err);
+            }
+            
             sqlite3_finalize(stmt);
         }else{
             ob_set_n(returnValue, L"error", err);
         }
+        /* sqlite3_close() is always safe to call here even when prepare failed:
+           sqlite3_open() populates pDb whether or not it returns SQLITE_OK. */
         sqlite3_close(pDb);
     }else{
+        /* sqlite3_open()'s own documented contract: pDb is valid (if unusable)
+           even on a non-OK return, and must still be released via sqlite3_close()
+           to avoid leaking the connection object. sqlite3_close(NULL) is a
+           documented no-op, so this is safe even in the rare case pDb is NULL. */
         ob_set_n(returnValue, L"error", err);
+        sqlite3_close(pDb);
     }
     
     PA_ReturnObject(params, returnValue);
+
+  } catch(...) {
+      /* The manifest declares this command with a return type (:J), so 4D is
+         waiting for PA_ReturnObject regardless of how execution ends. Letting
+         an exception escape to PluginMain's catch(...) would swallow it
+         without ever calling PA_ReturnObject, freezing the host. */
+      PA_ObjectRef errorValue = PA_CreateObject();
+      ob_set_n(errorValue, L"error", -1);
+      PA_ReturnObject(params, errorValue);
+  }
 }
 

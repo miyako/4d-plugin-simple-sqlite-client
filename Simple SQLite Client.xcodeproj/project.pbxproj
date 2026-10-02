@@ -28,6 +28,7 @@
 		D1F1D5C1240E259A0078C34F /* C_BLOB.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F1D5BF240E259A0078C34F /* C_BLOB.h */; };
 		D1F1D5C2240E259A0078C34F /* C_BLOB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F1D5C0240E259A0078C34F /* C_BLOB.cpp */; };
 		D1F1D5C4240E29530078C34F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F1D5C3240E29530078C34F /* libsqlite3.tbd */; };
+		2A05DB85B4D922E2397177E6 /* constants.xlf in CopyFiles */ = {isa = PBXBuildFile; fileRef = D14D10DD1A03A8A5008B3411 /* constants.xlf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 			dstSubfolderSpec = 7;
 			files = (
 				D134D4AC1A030BA0008D14EF /* manifest.json in CopyFiles */,
+				2A05DB85B4D922E2397177E6 /* constants.xlf in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
